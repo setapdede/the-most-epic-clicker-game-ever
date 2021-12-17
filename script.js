@@ -25,7 +25,7 @@ stu's todo list o' shit:
 */
 
 //Set Version
-const version = "0.1.5"
+const version = "0.1.6"
 document.getElementById("ver").innerHTML= `Version ${version}`
 
 //Init "some" SFX
@@ -40,7 +40,7 @@ var score=0
 var angle = 0
 var curskn=0
 var level = 0
-var nextlvl = 100
+var nextlvl = 20
 var levelprogres=0
 var daman = document.getElementById('img')
 var itemsOwned = [null]
@@ -167,7 +167,7 @@ var itemloop = setInterval(function() {
   //check lvl. if it equal to nextlevel, progress on
   if (levelprogres == nextlvl){
     levelprogres = 0
-    nextlvl = nextlvl + 100
+    nextlvl = nextlvl + 13
     level++
   }
 
