@@ -151,15 +151,15 @@ function buyitem(itm) {
 var itemloop = setInterval(function() {
   //console.log("ItemLoopPing!!!")
   if (itemsOwned.includes('11')) {
-    score+=10
+    score+=100
   } else if (itemsOwned.includes('10')) {
-    score+=5
+    score+=10
   } else if (itemsOwned.includes('9')) {
     score+=1
   } else if (itemsOwned.includes('8')) {
-    score+=0.5
-  } else if (itemsOwned.includes('7')) {
     score+=0.1
+  } else if (itemsOwned.includes('7')) {
+    score+=0.01
   }
 
   //check lvl. if it equal to nextlevel, progress on
