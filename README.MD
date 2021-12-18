@@ -2,6 +2,8 @@
 
 [Click here to launch the game.](https://setapdede.github.io/the-most-epic-clicker-game-ever/)
 
+## Original Dev's notes
+
 This is a game i made in school during breaks to improve my js skills.
 
 This is 100% raw js. no libraries, nothing else but pure js 
