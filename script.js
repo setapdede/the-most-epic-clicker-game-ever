@@ -38,7 +38,7 @@ var score=0
 var angle = 0
 var curskn=0
 var level = 0
-var nextlvl = 250
+var nextlvl = 75
 var levelprogres=0
 var daman = document.getElementById('img')
 var itemsOwned = [null]
@@ -166,7 +166,8 @@ var itemloop = setInterval(function() {
   if (levelprogres == nextlvl){
     levelprogres = 0
 	level++
-    nextlvl = nextlvl + 150 + level * 10
+    nextlvl = nextlvl + 5 * level * 2
+	score = score * 1.5
   }
 
   //Update HUD
@@ -293,7 +294,7 @@ if (!isMobile) {
 
 //Click Event Code
 function clickev() {
-  score = score + 1 + level
+  score = score + 1
   levelprogres++
 
   if (itemsOwned.includes('0')) {
