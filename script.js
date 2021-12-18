@@ -272,12 +272,12 @@ function equipskin(skn) {
   document.body.style.fontFamily = ""
 
   //Events
-  if (skn == 5) { //Seasonal
+  if (skn == 6) { //Seasonal
     document.body.style.background = "#00137F url('./skin/5/bg.png')";
     document.getElementById("dabase").style.color = "white";
   } else if (skn == 3) { //Modern
     document.body.style.fontFamily = "Arial, sans-serif"
-  } else if (skn == 6) { //Ballons
+  } else if (skn == 5) { //Ballons
     document.body.style.fontFamily = "Comic Sans, sans-serif"
 	document.body.style.background = "#FFFFF url('./skin/6/bg.png')";
   
