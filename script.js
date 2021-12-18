@@ -23,7 +23,7 @@ stu's todo list o' shit:
 */
 
 //Set Version
-const version = "0.1.6"
+const version = "0.1.6.1"
 document.getElementById("ver").innerHTML= `Version ${version}`
 
 //Init "some" SFX
@@ -279,6 +279,7 @@ function equipskin(skn) {
     document.body.style.fontFamily = "Arial, sans-serif"
   } else if (skn == 5) { //Ballons
     document.body.style.background = "#FFFFFF url('./skin/5/bg.png')";
+    document.getElementById("dabase").style.color = "#bfbfbf";
     document.body.style.fontFamily = "Comic Sans MS, Times New Roman, sans-serif"
   
   scaleToMobile()
