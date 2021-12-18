@@ -280,7 +280,6 @@ function equipskin(skn) {
   } else if (skn == 6) { //Ballons
     document.body.style.fontFamily = "Comic Sans, sans-serif"
 	document.body.style.background = "#FFFFF url('./skin/6/bg.png')";
-  }
   scaleToMobile()
 }
 //End of Skin Related Code
