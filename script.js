@@ -277,7 +277,9 @@ function equipskin(skn) {
     document.getElementById("dabase").style.color = "white";
   } else if (skn == 3) { //Modern
     document.body.style.fontFamily = "Arial, sans-serif"
-  }
+  } else if (skn == 6) { //Ballons
+    document.body.style.fontFamily = "Comic Sans, sans-serif"
+	document.body.style.background = "#FFFFF url('./skin/6/bg.png')";
   scaleToMobile()
 }
 //End of Skin Related Code
