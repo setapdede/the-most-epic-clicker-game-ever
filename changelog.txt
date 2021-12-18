@@ -1,3 +1,6 @@
+Version 0.1.6.1
+- Fixes
+
 Version 0.1.6
 - New Skin: Ballons - 50 points -Many Ballons
 - Now when you level up your score gets multiplied by 1.1x
