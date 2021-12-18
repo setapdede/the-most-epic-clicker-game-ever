@@ -7,7 +7,6 @@
   \__|_| |_|\___| |_| |_| |_|\___/|___/\__|  \___| .__/|_|\___|  \___|_|_|\___|_|\_\___|_|     \__, |\__,_|_| |_| |_|\___|  \___| \_/ \___|_|  (_|_|_)
                                                  | |                                            __/ |                                                 
                                                  |_|                                           |___/                                                  
-
   Created by stuartt_mcoded @ mcoded.xyz
   Official site: https://realmcoded.github.io/the-most-epic-clicker-game-ever/
   Source code: https://github.com/RealMCoded/the-most-epic-clicker-game-ever
@@ -15,7 +14,6 @@
 
 /*
 stu's todo list o' shit:
-
 - Add saving/loading somehow. cookies?
 - Level rewards
 - Better Item Shop Sorting. Search bar?
@@ -295,7 +293,7 @@ if (!isMobile) {
 
 //Click Event Code
 function clickev() {
-  score = score +1
+  score = score + 1 + level * 0.05
   levelprogres++
 
   if (itemsOwned.includes('0')) {
