@@ -1,3 +1,9 @@
+Version 0.1.6
+- New Skin: Ballons - 50 points -Many Ballons
+- Now when you level up your score gets multiplied by 1.1x
+
+## Previous Versions ###
+
 Version 0.1.5
 - New Skin: Idiot! - 325 Points -YOU ARE AN IDIOT! HAHAHAHAHAHAHAHAHAHAHAHAHA! (note: this skin flashes when clicked, may cause eye strain when clicked too fast.)
 - Shop now loads from a file (storeListings.json)
