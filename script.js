@@ -68,7 +68,7 @@ function loadStore() {
   for(var i = 0; i < items.length; i++) {
 
     let img = document.createElement("img")
-    if (UrlExists(`./store/items/${i}.png`)) {img.setAttribute("src",`./store/items/${i}.png`)} else {img.setAttribute("src",`./store/items/missing.png`)}
+    if (UrlExists(`./store/items/${i}.png`) && skn==0) {img.setAttribute("src",`./store/items/${i}.png`)} else {img.setAttribute("src",`./store/items/missing.png`)}
     img.setAttribute("id",`img_${i}`);
     news.appendChild(img)
 
