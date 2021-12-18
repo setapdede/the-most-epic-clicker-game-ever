@@ -278,7 +278,7 @@ function equipskin(skn) {
   } else if (skn == 3) { //Modern
     document.body.style.fontFamily = "Arial, sans-serif"
   } else if (skn == 5) { //Ballons
-    document.body.style.fontFamily = "Comic Sans, sans-serif"
+    document.body.style.fontFamily = "Comic Sans MS, Times New Roman, sans-serif"
 	document.body.style.background = "#FFFFF url('./skin/6/bg.png')";
   
   scaleToMobile()
