@@ -275,7 +275,7 @@ function equipskin(skn) {
     document.body.style.background = "#00137F url('./skin/5/bg.png')";
     document.getElementById("dabase").style.color = "white";
   } else if (skn == 3) { //Modern
-    document.body.style.fontFamily = "Calibri, sans-serif"
+    document.body.style.fontFamily = "Arial, sans-serif"
   }
   scaleToMobile()
 }
