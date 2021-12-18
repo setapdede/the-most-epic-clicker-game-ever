@@ -167,7 +167,7 @@ var itemloop = setInterval(function() {
     levelprogres = 0
 	level++
     nextlvl = nextlvl + 5 * level * 2
-	score = score * 1.5
+	score = score * 1.1
   }
 
   //Update HUD
