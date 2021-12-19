@@ -7,7 +7,6 @@
   \__|_| |_|\___| |_| |_| |_|\___/|___/\__|  \___| .__/|_|\___|  \___|_|_|\___|_|\_\___|_|     \__, |\__,_|_| |_| |_|\___|  \___| \_/ \___|_|  (_|_|_)
                                                  | |                                            __/ |                                                 
                                                  |_|                                           |___/                                                  
-
   Created by stuartt_mcoded @ mcoded.xyz
   Official site: https://realmcoded.github.io/the-most-epic-clicker-game-ever/
   Source code: https://github.com/RealMCoded/the-most-epic-clicker-game-ever
@@ -15,7 +14,6 @@
 
 /*
 stu's todo list o' shit:
-
 - Add saving/loading somehow. cookies?
 - Level rewards
 - Better Item Shop Sorting. Search bar?
@@ -25,7 +23,7 @@ stu's todo list o' shit:
 */
 
 //Set Version
-const version = "0.1.5"
+const version = "0.1.7.dev"
 document.getElementById("ver").innerHTML= `Version ${version}`
 
 //Init "some" SFX
@@ -40,7 +38,8 @@ var score=0
 var angle = 0
 var curskn=0
 var level = 0
-var nextlvl = 100
+var clickerbuddyadd=0
+var nextlvl = 75
 var levelprogres=0
 var daman = document.getElementById('img')
 var itemsOwned = [null]
@@ -70,7 +69,7 @@ function loadStore() {
   for(var i = 0; i < items.length; i++) {
 
     let img = document.createElement("img")
-    if (UrlExists(`./store/items/${i}.png`)) {img.setAttribute("src",`./store/items/${i}.png`)} else {img.setAttribute("src",`./store/items/missing.png`)}
+    if (UrlExists(`./store/items/${i}.png`) && (curskn==0)) {img.setAttribute("src",`./store/items/${i}.png`)} else {img.setAttribute("src",`./store/items/missing.png`)}
     img.setAttribute("id",`img_${i}`);
     news.appendChild(img)
 
@@ -135,7 +134,17 @@ function buyitem(itm) {
       chaching.play()
 
       //Buy Events
-      if (want == 12) {
+      if (want == 8) {
+        clickerbuddyadd=0.02
+      } else if (want == 9){
+        clickerbuddyadd=0.1
+      } else if (want == 10){
+        clickerbuddyadd=1
+      } else if (want == 11){
+        clickerbuddyadd=10
+      } else if (want == 12){
+        clickerbuddyadd=100
+      } else if (want == 13) {
         score = score*2
       }
     } else {
@@ -151,24 +160,42 @@ function buyitem(itm) {
 
 //Item Loop/update (every 50 or so ms)
 var itemloop = setInterval(function() {
-  //console.log("ItemLoopPing!!!")
-  if (itemsOwned.includes('11')) {
-    score+=100
-  } else if (itemsOwned.includes('10')) {
-    score+=10
-  } else if (itemsOwned.includes('9')) {
-    score+=1
-  } else if (itemsOwned.includes('8')) {
-    score+=0.1
-  } else if (itemsOwned.includes('7')) {
-    score+=0.01
-  }
+ //add clicker buddy bonus to score
+  score+=clickerbuddyadd
 
+  //auto clicker buddy multiplication
+  if (itemsOwned.includes('14')) {
+    if (itemsOwned.includes('0')) {
+      score = score + clickerbuddyadd
+    }
+    if (itemsOwned.includes('1')) {
+      score = score + clickerbuddyadd
+    }
+    if (itemsOwned.includes('2')) {
+      score = score + clickerbuddyadd
+    }
+    if (itemsOwned.includes('3')) {
+      score = score + clickerbuddyadd
+    }
+    if (itemsOwned.includes('4')) {
+      score = score + clickerbuddyadd
+    }
+    if (itemsOwned.includes('5')) {
+      score = score + clickerbuddyadd
+    }
+    if (itemsOwned.includes('6')) {
+      score = score + clickerbuddyadd
+    }
+	  if (itemsOwned.includes('7')) {
+      score = score + clickerbuddyadd
+    }
+  }
   //check lvl. if it equal to nextlevel, progress on
   if (levelprogres == nextlvl){
     levelprogres = 0
-    nextlvl = nextlvl + 100
-    level++
+	level++
+    nextlvl = nextlvl + 55
+	score = score * 1.1
   }
 
   //Update HUD
@@ -177,7 +204,9 @@ var itemloop = setInterval(function() {
   document.getElementById("lvl").max=nextlvl
   document.getElementById("curlvl").innerHTML= `Level: ${level}`
   document.getElementById("lvl_raw").innerHTML=`${levelprogres}/${nextlvl}`
-}, 50);
+  document.getElementById("chance_bettip").innerHTML=`Lowest bet is 1, highest bet is ${score}`
+  document.getElementById("dabet").max = score
+}, 50)
 //End of Item Related Code
 
 //Start of Skin Related Code
@@ -273,13 +302,24 @@ function equipskin(skn) {
   document.body.style.fontFamily = ""
 
   //Events
-  if (skn == 5) { //Seasonal
-    document.body.style.background = "#00137F url('./skin/5/bg.png')";
+  if (skn == 7) { //Seasonal
+    document.body.style.background = "#00137F url('./skin/7/bg.png')";
     document.getElementById("dabase").style.color = "white";
   } else if (skn == 3) { //Modern
-    document.body.style.fontFamily = "Calibri, sans-serif"
-  }
+    document.body.style.fontFamily = "Arial, sans-serif"
+  } else if (skn == 5) { //Ballons
+    document.body.style.background = "#FFFFFF url('./skin/5/bg.png')";
+    document.body.style.fontFamily = "Comic Sans MS, Times New Roman, sans-serif"
+	document.getElementById("dabase").style.color = "#bfbfbf";
+  } else if (skn == 1) { //ACSII
+    document.body.style.background = "#000000";
+    document.body.style.fontFamily = "Consolas, Times New Roman, sans-serif"
+	document.getElementById("dabase").style.color = "#FFFFFF"; 
+  } else if (skn == 6) { //Skeuomorphic
+    document.body.style.background = "#FFFFFF url('./skin/6/bg.png')";
+    document.body.style.fontFamily = "Tahoma, Trebuchet MS, Arial, Times New Roman, sans-serif"
   scaleToMobile()
+}
 }
 //End of Skin Related Code
 
@@ -295,7 +335,7 @@ if (!isMobile) {
 
 //Click Event Code
 function clickev() {
-  score = score +1
+  score = score + 1
   levelprogres++
 
   if (itemsOwned.includes('0')) {
@@ -317,6 +357,9 @@ function clickev() {
     score = score +1
   }
   if (itemsOwned.includes('6')) {
+    score = score +1
+  }
+  if (itemsOwned.includes('7')) {
     score = score +1
   }
 }
@@ -386,6 +429,11 @@ function scaleToMobile(){
   }
 }
 
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 //DEBUG STUFF
 function debug() {
   let arg = arguments[0]
@@ -399,3 +447,36 @@ function debug() {
     daman.style.width = `236px`
   }
 }
+
+//CHANCE GAME
+function chancegame(){
+  let bet = document.getElementById("dabet").value
+  if (bet > score) {alert(`You bet ${bet},\nbut you don't have that much...`); return "ERR_INVALID_BET";}
+
+  let side = confirm("Ok for heads, Cancel for tails.")
+  document.getElementById("chance_smit").disabled = true
+  document.getElementById("coinimg").src = "./coin/flip.gif"
+  document.getElementById("chance_status").innerHTML="Status: Flipping..."
+
+  setTimeout(function(){
+    document.getElementById("chance_smit").disabled = false
+    document.getElementById("chance_status").innerHTML="Status: Idle..."
+
+    let winner = getRandomInt(2)
+
+    if (winner == 0){ //tails
+      document.getElementById("coinimg").src = "./coin/tail.png"
+    } else {
+      document.getElementById("coinimg").src = "./coin/head.png"
+    }
+
+    if (winner == side){
+       if (winner == 0) alert(`The coin landed on Tails.\nYou win ${bet*2} points!`);
+      if (winner == 1) alert(`The coin landed on Heads.\nYou win ${bet*2} points!`);
+      score = score + (bet*2)
+    } else {
+      if (winner == 0) alert(`The coin landed on Tails.\nYou lost ${bet} points!`);
+      if (winner == 1) alert(`The coin landed on Heads.\nYou lost ${bet} points!`);
+      score-=bet
+    }
+  },5000)}

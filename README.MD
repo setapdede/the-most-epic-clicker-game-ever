@@ -1,6 +1,8 @@
 # THE MOST EPIC CLICKER GAME EVER!!!!!
 
-[Click here to launch the game.](https://realmcoded.github.io/the-most-epic-clicker-game-ever/)
+[Click here to launch the game.](https://setapdede.github.io/the-most-epic-clicker-game-ever/)
+
+## Original Dev's notes
 
 This is a game i made in school during breaks to improve my js skills.
 
@@ -13,8 +15,6 @@ There aren't really any requirements since this *is* as web app. However, if you
 
 ## Offline Play
 
-[Click here to download the latest stable version](https://github.com/RealMCoded/the-most-epic-clicker-game-ever/archive/refs/heads/master.zip)
-
-[Click here to download the latest dev version](https://github.com/RealMCoded/the-most-epic-clicker-game-ever/archive/refs/heads/dev.zip)
+*no link at the moment :(*
 
 Speaking of playing offline, Double check that you have [Python](https://www.python.org/downloads/) installed and run `start_local.bat` (quickest way) or `host-test-server.bat` (easier to set a custom IP and Port) to start a localhost server.
