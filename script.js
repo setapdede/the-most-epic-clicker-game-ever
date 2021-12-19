@@ -184,7 +184,7 @@ var itemloop = setInterval(function() {
   if (levelprogres == nextlvl){
     levelprogres = 0
 	level++
-    nextlvl = nextlvl + 55
+    nextlvl = nextlvl + 115
 	score = score * 1.1
   }
 
