@@ -12,18 +12,8 @@
   Source code: https://github.com/RealMCoded/the-most-epic-clicker-game-ever
 */
 
-/*
-stu's todo list o' shit:
-- Add saving/loading somehow. cookies?
-- Level rewards
-- Better Item Shop Sorting. Search bar?
-- clickev(): Re-do how auto clicker is done for Clicker Buddy Multiplication
-- how tf would i do Chance - Double Or Nothing
-- UrlExists(): async xmlhttprequest request?
-*/
-
 //Set Version
-const version = "0.1.7.dev"
+const version = "0.1.7"
 document.getElementById("ver").innerHTML= `Version ${version}`
 
 //Init "some" SFX
@@ -134,17 +124,17 @@ function buyitem(itm) {
       chaching.play()
 
       //Buy Events
-      if (want == 8) {
+      if (want == 9) {
         clickerbuddyadd=0.02
-      } else if (want == 9){
-        clickerbuddyadd=0.1
       } else if (want == 10){
-        clickerbuddyadd=1
+        clickerbuddyadd=0.1
       } else if (want == 11){
-        clickerbuddyadd=10
+        clickerbuddyadd=1
       } else if (want == 12){
-        clickerbuddyadd=100
-      } else if (want == 13) {
+        clickerbuddyadd=10
+      } else if (want == 13){
+        clickerbuddyadd=15
+      } else if (want == 14) {
         score = score*2
       }
     } else {
@@ -164,7 +154,7 @@ var itemloop = setInterval(function() {
   score+=clickerbuddyadd
 
   //auto clicker buddy multiplication
-  if (itemsOwned.includes('14')) {
+  if (itemsOwned.includes('15')) {
     if (itemsOwned.includes('0')) {
       score = score + clickerbuddyadd
     }
@@ -204,8 +194,8 @@ var itemloop = setInterval(function() {
   document.getElementById("lvl").max=nextlvl
   document.getElementById("curlvl").innerHTML= `Level: ${level}`
   document.getElementById("lvl_raw").innerHTML=`${levelprogres}/${nextlvl}`
-  document.getElementById("chance_bettip").innerHTML=`Lowest bet is 1, highest bet is ${score}`
-  document.getElementById("dabet").max = score
+  document.getElementById("chance_bettip").innerHTML=`Lowest bet is 1, highest bet is ${Math.trunc(score)}`
+  document.getElementById("dabet").max = Math.trunc(score)
 }, 50)
 //End of Item Related Code
 
@@ -316,7 +306,7 @@ function equipskin(skn) {
     document.body.style.fontFamily = "Consolas, Times New Roman, sans-serif"
 	document.getElementById("dabase").style.color = "#FFFFFF"; 
   } else if (skn == 6) { //Skeuomorphic
-    document.body.style.background = "#FFFFFF url('./skin/6/bg.png')";
+    document.body.style.background = "#E5E5E5 url('./skin/6/bg.png')";
     document.body.style.fontFamily = "Tahoma, Trebuchet MS, Arial, Times New Roman, sans-serif"
   scaleToMobile()
 }
@@ -362,6 +352,54 @@ function clickev() {
   if (itemsOwned.includes('7')) {
     score = score +1
   }
+  if (itemsOwned.includes('8')) {
+    score = score +1
+  }
+  if (itemsOwned.includes('16')) {
+    score = score + level * 0.05
+  }
+  if (itemsOwned.includes('17')) {
+    score = score + level * 0.1
+  }
+  if (itemsOwned.includes('18')) {
+    score = score + level * 0.25
+  }
+}
+//Coin Flip Game
+function chancegame(){
+  let bet = document.getElementById("dabet").value //Define how much the Player is betting
+  if (bet > score) {alert(`You bet ${bet},\nbut you don't have that much...`); return "ERR_INVALID_BET";} //If bet is somehow above, throw an error.
+  if (0 > bet) {alert(`You bet ${bet},\nbut you cannot bet negative points.`); return "ERR_INVALID_BET";}
+  if (confirm(`Are you sure you want to bet ${bet}?`)) { //Double check to make sure they wanna do this
+
+  let side = confirm("Ok for heads, Cancel for tails.") //Define side as TRUE (1) for heads, and FALSE (0) for tails
+  document.getElementById("chance_smit").disabled = true //Disable the button
+  document.getElementById("coinimg").src = "./coin/flip.gif" //Change the coin to have the flip anim
+  document.getElementById("chance_status").innerHTML="Status: Flipping..." //Change the status
+
+  setTimeout(function(){ //Do this after 5 seconds
+    document.getElementById("chance_smit").disabled = false //Re-enable the button
+    document.getElementById("chance_status").innerHTML="Status: Idle..." //Reset the status
+
+    let winner = getRandomInt(2) //Decide if )0wins or if 1 wins
+
+    if (winner == 0){ //If tails wins...
+      document.getElementById("coinimg").src = "./coin/tail.png" //Set image to tails
+    } else {
+      document.getElementById("coinimg").src = "./coin/head.png" //Set image to Heads
+    }
+
+    if (winner == side){ //If the player chose the winning side
+      if (winner == 0) alert(`The coin landed on Tails.\nYou win ${bet*2} points!`); //Show this if 0 was chosen
+      if (winner == 1) alert(`The coin landed on Heads.\nYou win ${bet*2} points!`); //Show this if 1 was chosen
+      score = score + (bet*2)
+    } else {
+      if (winner == 0) alert(`The coin landed on Tails.\nYou lost ${bet} points!`); //Show this if 0 was chosen
+      if (winner == 1) alert(`The coin landed on Heads.\nYou lost ${bet} points!`); //Show this if 1 was chosen
+      score-=bet
+    }
+  },5000);
+}
 }
 
 //Other Scripts
@@ -448,35 +486,3 @@ function debug() {
   }
 }
 
-//CHANCE GAME
-function chancegame(){
-  let bet = document.getElementById("dabet").value
-  if (bet > score) {alert(`You bet ${bet},\nbut you don't have that much...`); return "ERR_INVALID_BET";}
-
-  let side = confirm("Ok for heads, Cancel for tails.")
-  document.getElementById("chance_smit").disabled = true
-  document.getElementById("coinimg").src = "./coin/flip.gif"
-  document.getElementById("chance_status").innerHTML="Status: Flipping..."
-
-  setTimeout(function(){
-    document.getElementById("chance_smit").disabled = false
-    document.getElementById("chance_status").innerHTML="Status: Idle..."
-
-    let winner = getRandomInt(2)
-
-    if (winner == 0){ //tails
-      document.getElementById("coinimg").src = "./coin/tail.png"
-    } else {
-      document.getElementById("coinimg").src = "./coin/head.png"
-    }
-
-    if (winner == side){
-       if (winner == 0) alert(`The coin landed on Tails.\nYou win ${bet*2} points!`);
-      if (winner == 1) alert(`The coin landed on Heads.\nYou win ${bet*2} points!`);
-      score = score + (bet*2)
-    } else {
-      if (winner == 0) alert(`The coin landed on Tails.\nYou lost ${bet} points!`);
-      if (winner == 1) alert(`The coin landed on Heads.\nYou lost ${bet} points!`);
-      score-=bet
-    }
-  },5000)}
