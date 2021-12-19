@@ -1,3 +1,12 @@
+Version 0.1.7
+- Added Click x9 and x10
+- More balancing
+- New item: Level Points, you can now gain more points by having a higher level
+- Redesigned ASCII Face, now terminal, new BG and font
+- New: Disccounts for skins
+- New Skin: Skeumorphic
+- Updated game to version 0.1.6
+
 Version 0.1.6.1
 - Fixes
 
