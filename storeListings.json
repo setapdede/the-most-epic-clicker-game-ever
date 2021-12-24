@@ -22,12 +22,12 @@
     ],
     "skins":[
       {"name":"Default", "price":0, "description":"Default smile"},
-      {"name":"Terminal", "price":75, "description":"Text emoji ;)<br><i>Includes: Face and Font</i>"},
+      {"name":"Terminal", "price":55, "description":"<b>CHRISTMAS SALE 25% OFF<br>New: 55 pts, Old: <s>75 pts</s></b><br><br>Text emoji ;)<br><i>Includes: Face and Font</i>"},
       {"name":"Default but cooler", "price":90, "description":"<b>CHRISTMAS SALE 25% OFF<br>New: 90 pts, Old: <s>125 pts</s></b><br><br>b sides<br><i>Includes: Face</i>"},
-      {"name":"Moden", "price":200, "description":"Clean & Simplistic<br><i>Includes: Face and Font</i>"},
-      {"name":"Idiot!", "price":275, "description":"<b>YOU ARE AN IDIOT!<br>HAHAHAHAHAHAHAHAHAHAHAHAHA!</b><br><i>note: this skin flashes when clicked, may cause eye strain when clicked too fast.</i><br><i>Includes: Face</i>"},
-	  {"name":"Balloons", "price":100, "description":"Many balloons<br><i>Includes: Face, Background and Font</i>"},
-	  {"name":"Skeuomorphic", "price":225, "description":"Enjoy the 3D visuals<br><i>Includes: Face, Background and Font</i>"},
+      {"name":"Moden", "price":150, "description":"<b>CHRISTMAS SALE 25% OFF<br>New: 150 pts, Old: <s>200 pts</s></b><br><br>Clean & Simplistic<br><i>Includes: Face and Font</i>"},
+      {"name":"Idiot!", "price":205, "description":"<b>CHRISTMAS SALE 25% OFF<br>New: 205 pts, Old: <s>275 pts</s></b><br><br><b>YOU ARE AN IDIOT!<br>HAHAHAHAHAHAHAHAHAHAHAHAHA!</b><br><i>note: this skin flashes when clicked, may cause eye strain when clicked too fast.</i><br><i>Includes: Face</i>"},
+	  {"name":"Balloons", "price":75, "description":"<b>CHRISTMAS SALE 25% OFF<br>New: 75 pts, Old: <s>100 pts</s></b><br><br>Many balloons<br><i>Includes: Face, Background and Font</i>"},
+	  {"name":"Skeuomorphic", "price":170, "description":"<b>CHRISTMAS SALE 25% OFF<br>New: 170 pts, Old: <s>225 pts</s></b><br><br>Enjoy the 3D visuals<br><i>Includes: Face, Background and Font</i>"},
       {"name":"Event - Christmas", "price":0, "description":"Only available from 11/25 to 01/01!<br>Christmas! Just a week away!<br><i>Includes: Face and Background</i>"}
     ],
     "_OLD":[
